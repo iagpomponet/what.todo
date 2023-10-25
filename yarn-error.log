@@ -1,0 +1,58 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\iagos\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\iagos\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\iagos\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\dotnet;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\PostgreSQL\15\bin;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\iagos\AppData\Local\Microsoft\WindowsApps;C:\Users\iagos\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\iagos\AppData\Local\Programs\Hyper\resources\bin;C:\Users\iagos\Desktop\mongosh-1.5.0-win32-x64\mongosh-1.5.0-win32-x64\bin;C:\Users\iagos\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  18.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\iagos\projects\todo-full\server\package.json: Unexpected token } in JSON at position 159
+      at JSON.parse (<anonymous>)
+      at C:\Users\iagos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\iagos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\iagos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "type": "module",
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "license": "MIT",
+    "scripts": {
+      "test": "jest --watchAll",
+      
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.20",
+      "@types/node": "^20.8.8",
+      "morgan": "^1.10.0",
+      "nodemon": "^3.0.1",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.2.2"
+    },
+    "dependencies": {
+      "@babel/preset-env": "^7.23.2",
+      "@babel/preset-typescript": "^7.23.2",
+      "@types/jest": "^29.5.6",
+      "bcryptjs": "^2.4.3",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "pg": "^8.11.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
