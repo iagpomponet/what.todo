@@ -1,5 +1,5 @@
 import { User } from "../../../../database/types";
-import { updateUser } from "../../../../database/db.js";
+import { updateUser } from "../../../../database/db.ts";
 
 type Args = Partial<User>;
 

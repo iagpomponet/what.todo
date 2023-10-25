@@ -30,10 +30,10 @@ export async function selectUsers() {
   return res.rows;
 }
 
-export async function getUser(id) {
+export async function getUser(id?: string, email?: string) {
   const client = await connect();
-  const sql = 'SELECT * from "user" WHERE user_id=$1';
-  const result = await client.query(sql, [id]);
+  const sql = 'SELECT * from "user" WHERE user_id=$1 OR email=$2';
+  const result = await client.query(sql, [id, email]);
 
   return result.rows;
 }

@@ -1,13 +1,16 @@
-import { getUser } from "../../../../database/db.js";
+import { getUser } from "../../../../database/db.ts";
 
 interface Args {
-  id: string;
+  id?: string;
+  email?: string;
 }
 
 export default class GetUserUseCase {
-  async execute({ id }: Args) {
+  async execute({ id, email }: Args) {
     try {
-      const results = await getUser(id);
+      const results = await getUser(id, email);
+
+      console.log("results :>> ", email);
 
       return results;
     } catch (error) {

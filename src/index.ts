@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
-import { connect, selectUsers } from "./database/db.js";
+import cookieParser from "cookie-parser";
+import { connect, selectUsers } from "./database/db.ts";
 
 import userRoutes from "./routes/user.routes.js";
 
@@ -12,6 +13,8 @@ dotenv.config();
 connect();
 
 app.use(morgan("dev"));
+
+app.use(cookieParser());
 
 app.use(express.json());
 

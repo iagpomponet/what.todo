@@ -1,20 +1,20 @@
 import { Request, Response } from "express";
-import GetUserUseCase from "./getUserUseCase.ts";
+import GetUserUseCase from "./GetUserUseCase.ts";
 
 export default class GetUserController {
   async handle(req: Request, res: Response) {
-    const { user_id } = req?.body;
+    const { user_id, email } = req?.body;
 
-    if (!user_id) {
+    if (!user_id && !email) {
       return res.status(404).json({
-        error: "User id not provided",
+        error: "User id or e-mail not provided",
       });
     }
 
     const getUserUseCase = new GetUserUseCase();
 
     try {
-      const result = await getUserUseCase.execute({ id: user_id });
+      const result = await getUserUseCase.execute({ id: user_id, email });
 
       if (!result?.length) {
         return res.status(404).json({

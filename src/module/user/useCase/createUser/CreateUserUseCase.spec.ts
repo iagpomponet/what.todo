@@ -1,12 +1,12 @@
 import CreateUserUseCase from "./createUserUseCase";
 import bcrypt from "bcryptjs";
-import { createUser } from "../../../../database/db.js";
+import { createUser } from "../../../../database/db.ts";
 
 jest.mock("bcryptjs", () => ({
   hash: jest.fn().mockResolvedValue("hashedPassword"),
 }));
 
-jest.mock("../../../../database/db.js", () => ({
+jest.mock("../../../../database/db.ts", () => ({
   createUser: jest.fn().mockResolvedValue({ id: 1 }),
 }));
 

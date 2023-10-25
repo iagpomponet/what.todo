@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import UpdateUserUseCase from "./updateUserUseCase.ts";
-import GetUserUseCase from "../getUser/getUserUseCase.ts";
+import UpdateUserUseCase from "./UpdateUserUseCase.ts";
+import GetUserUseCase from "../getUser/GetUserUseCase.ts";
 
-export class UpdateUserController {
+export default class UpdateUserController {
   async handle(req: Request, res: Response) {
     const getUserUseCase = new GetUserUseCase();
     const { first_name, last_name, avatar_url, user_id } = req?.body;

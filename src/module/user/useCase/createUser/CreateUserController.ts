@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateUserUseCase from "./createUserUseCase.ts";
+import CreateUserUseCase from "./CreateUserUseCase.ts";
 
 export default class CreateUserController {
   async handle(req: Request, res: Response) {
