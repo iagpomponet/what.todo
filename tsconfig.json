@@ -1,0 +1,20 @@
+{   
+  "compilerOptions": {
+  "lib": [
+     "es5",
+     "es6"
+  ],
+  "target": "es6",
+  "module": "ES6",
+  "moduleResolution": "node",
+  "outDir": "./build",
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true,
+  "sourceMap": true,
+  "esModuleInterop": true,
+  "composite": true,
+  "declaration": true,
+  "emitDeclarationOnly": true,
+  "allowImportingTsExtensions": true,
+  }
+}
