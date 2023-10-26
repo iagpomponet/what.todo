@@ -5,6 +5,7 @@ import { connect, selectUsers } from "./database/db.ts";
 
 import userRoutes from "./routes/user.routes.js";
 import todoRoutes from "./routes/todo.routes.ts";
+import labelRoutes from "./routes/label.routes.ts";
 
 const app = express();
 import dotenv from "dotenv";
@@ -21,5 +22,6 @@ app.use(express.json());
 
 app.use("/todo", todoRoutes);
 app.use("/user", userRoutes);
+app.use("/label", labelRoutes);
 
 app.listen(3001, async () => {});

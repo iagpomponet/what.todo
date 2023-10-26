@@ -101,8 +101,44 @@ export async function deleteTodo(id) {
 
 export async function getTodoFromUser(user_id: string) {
   const client = await connect();
-  const sql = "SELECT * FROM todo WHERE user_id=$1";
+  const sql = `SELECT
+  todo.todo_id,
+  todo.user_id,
+  todo.content,
+  todo.completed,
+  todo.created_at,
+  array_agg(jsonb_build_object('name', label.name, 'color', label.color)) AS labels
+FROM
+  todo
+INNER JOIN
+  label
+  ON todo.labels @> ARRAY[label.label_id]::UUID[]
+WHERE
+  todo.user_id = $1
+GROUP BY
+  todo.todo_id, todo.user_id, todo.content;
+;
+  `;
   const result = await client.query(sql, [user_id]);
+  client.release();
+
+  return result.rows;
+}
+
+export async function createLabel({
+  user_id,
+  color,
+  name,
+}: {
+  user_id: string;
+  color: string;
+  name: string;
+}) {
+  const client = await connect();
+  const sql =
+    "INSERT INTO label (user_id, color,name) VALUES ($1,$2,$3) RETURNING *";
+  const values = [user_id, color, name];
+  const result = await client.query(sql, values);
   client.release();
 
   return result.rows;
