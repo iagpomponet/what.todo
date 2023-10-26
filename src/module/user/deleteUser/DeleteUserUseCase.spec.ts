@@ -1,5 +1,5 @@
-import { deleteUser } from "../../../../database/db.ts";
-import DeleteUserUserCase from "./deleteUserUseCase";
+import { deleteUser } from "../../../database/db.ts";
+import DeleteUserUserCase from "./deleteUserUseCase.ts";
 
 jest.mock("../../../../database/db.ts", () => ({
   deleteUser: jest.fn().mockResolvedValue({ id: 1 }),

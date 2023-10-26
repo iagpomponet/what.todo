@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { createUser } from "../../../../database/db.ts";
+import { createUser } from "../../../database/db.ts";
 
 interface Args {
   first_name: string;

@@ -1,5 +1,5 @@
-import { updateUser } from "../../../../database/db.ts";
-import UpdateUserUseCase from "./updateUserUseCase";
+import { updateUser } from "../../../database/db.ts";
+import UpdateUserUseCase from "./updateUserUseCase.ts";
 
 jest.mock("../../../../database/db.ts", () => ({
   updateUser: jest.fn().mockResolvedValue({ id: 1 }),

@@ -1,6 +1,6 @@
-import CreateUserUseCase from "./createUserUseCase";
+import CreateUserUseCase from "./createUserUseCase.ts";
 import bcrypt from "bcryptjs";
-import { createUser } from "../../../../database/db.ts";
+import { createUser } from "../../../database/db.ts";
 
 jest.mock("bcryptjs", () => ({
   hash: jest.fn().mockResolvedValue("hashedPassword"),

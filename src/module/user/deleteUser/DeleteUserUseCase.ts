@@ -1,4 +1,4 @@
-import { deleteUser } from "../../../../database/db.ts";
+import { deleteUser } from "../../../database/db.ts";
 
 interface Args {
   id: string;

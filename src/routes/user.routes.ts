@@ -2,11 +2,11 @@ import express from "express";
 
 import handleAuth from "../middlewares/auth.ts";
 
-import CreateUserController from "../module/user/useCase/createUser/CreateUserController.ts";
-import UpdateUserController from "../module/user/useCase/updateUser/UpdateUserController.ts";
-import DeleteUserController from "../module/user/useCase/deleteUser/DeleteUserController.ts";
-import GetUserController from "../module/user/useCase/getUser/GetUserController.ts";
-import AuthenticateUserController from "../module/user/useCase/authenticateUser/AuthenticateUserController.ts";
+import CreateUserController from "../module/user/createUser/CreateUserController.ts";
+import UpdateUserController from "../module/user/updateUser/UpdateUserController.ts";
+import DeleteUserController from "../module/user/deleteUser/DeleteUserController.ts";
+import GetUserController from "../module/user/getUser/GetUserController.ts";
+import AuthenticateUserController from "../module/user/authenticateUser/AuthenticateUserController.ts";
 
 const getUserController = new GetUserController();
 const createUserController = new CreateUserController();

@@ -10,8 +10,9 @@
     - Add tests to check if user exists in DELETE and UPDATE useCases
     - Add possibility to get user by e-mail (X)
     - Create middlewares to handle private endpoints
-- USER AUTH
+- USER AUTH (X)
 - TODO CRUD
+  - Create TODO
 
 
 TODOS:
