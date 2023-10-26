@@ -98,3 +98,12 @@ export async function deleteTodo(id) {
 
   return result.rows;
 }
+
+export async function getTodoFromUser(user_id: string) {
+  const client = await connect();
+  const sql = "SELECT * FROM todo WHERE user_id=$1";
+  const result = await client.query(sql, [user_id]);
+  client.release();
+
+  return result.rows;
+}
