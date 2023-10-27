@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import { connect, selectUsers } from "./database/db.ts";
+import { connect } from "./database/db.ts";
 
 import userRoutes from "./routes/user.routes.js";
 import todoRoutes from "./routes/todo.routes.ts";
