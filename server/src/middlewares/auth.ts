@@ -19,8 +19,6 @@ export default async function handleAuth(
       process.env.JWT_SECRET
     );
 
-    console.log("userId :>> ", user_id);
-
     if (!user_id) {
       return res.status(400).json({ error: "Invalid authentication token" });
     }

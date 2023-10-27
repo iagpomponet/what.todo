@@ -32,6 +32,7 @@ export async function getUser(id?: string, email?: string) {
   const client = await connect();
   const sql = 'SELECT * from "user" WHERE user_id=$1 OR email=$2';
   const result = await client.query(sql, [id, email]);
+  client.release();
 
   return result.rows;
 }

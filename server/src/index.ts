@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import { connect } from "./database/db.ts";
 
@@ -10,9 +11,16 @@ import labelRoutes from "./routes/label.routes.ts";
 const app = express();
 import dotenv from "dotenv";
 
+const corsConfig = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+
 dotenv.config();
 
 connect();
+
+app.use(cors(corsConfig));
 
 app.use(morgan("dev"));
 
