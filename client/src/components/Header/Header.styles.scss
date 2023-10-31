@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--tomato-a10);
+    color: var(--slate-1);
+    
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+    }
+
+
+    &__profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

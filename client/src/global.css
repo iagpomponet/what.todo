@@ -1,5 +1,12 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
 html, body, #root {
     height: 100%;
+    margin: 0;
 }
 
 .app-container {
@@ -7,4 +14,8 @@ html, body, #root {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-  }
+}
+
+ul, li {
+    list-style: none;
+}

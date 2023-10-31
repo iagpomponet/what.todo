@@ -16,5 +16,8 @@
   "declaration": true,
   "emitDeclarationOnly": true,
   "allowImportingTsExtensions": true,
-  }
+  },
+  "ts-node": {
+    "files": true
+  },
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "../global.css";
 import { Inter } from "next/font/google";
-import { Theme } from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
+import { UserContextProvider } from "@/hooks/user";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReactQueryProvider>
-          <Theme
+          <ThemeProvider
             appearance="light"
             accentColor="tomato"
             grayColor="gray"
             panelBackground="solid"
           >
-            {children}
-          </Theme>
+            <UserContextProvider>{children}</UserContextProvider>
+          </ThemeProvider>
         </ReactQueryProvider>
       </body>
     </html>

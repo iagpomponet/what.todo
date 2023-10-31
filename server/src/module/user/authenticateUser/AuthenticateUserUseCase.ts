@@ -29,8 +29,6 @@ export default class AuthenticateUserUseCase {
         subject: user.user_id,
       });
 
-      debugger;
-
       const passwordCorrect = await pkg.compare(password, user.password);
 
       if (passwordCorrect) {

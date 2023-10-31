@@ -17,10 +17,10 @@ const router = express.Router();
 router.post("/", handleAuth, createTodoController.handle);
 
 //Update todo
-router.put("/", handleAuth, updateTodoController.handle);
+router.put("/:post_id", handleAuth, updateTodoController.handle);
 
 // Delete Todo
-router.delete("/", handleAuth, deleteTodoController.handle);
+router.delete("/:todo_id", handleAuth, deleteTodoController.handle);
 
 // Get all todos from a user
 

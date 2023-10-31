@@ -10,8 +10,6 @@ export default class GetUserUseCase {
     try {
       const results = await getUser(id, email);
 
-      console.log("results :>> ", email);
-
       return results;
     } catch (error) {
       throw new Error(error);

@@ -15,7 +15,7 @@ export interface Todo {
 }
 
 export interface Label {
-  post_id: string;
+  label_id: string;
   user_id: string;
   value: string;
   color: string;

@@ -10,7 +10,7 @@ export default async function handleAuth(
   const { whatTodoAuthCookie } = req.cookies;
 
   if (!whatTodoAuthCookie) {
-    return res.status(500).json({ error: "No authentication token provided" });
+    return res.status(401).json({ error: "No authentication token provided" });
   }
 
   try {
@@ -20,11 +20,19 @@ export default async function handleAuth(
     );
 
     if (!user_id) {
-      return res.status(400).json({ error: "Invalid authentication token" });
+      throw new Error("Invalid authentication token");
     }
 
     const getUserUseCase = new GetUserUseCase();
     const user = await getUserUseCase.execute({ id: user_id as string });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    req.user = {
+      id: user_id as string,
+    };
 
     next();
   } catch (error) {
@@ -32,6 +40,4 @@ export default async function handleAuth(
       error: error.message,
     });
   }
-
-  console.log("whatTodoAuthCookie :>> ", whatTodoAuthCookie);
 }

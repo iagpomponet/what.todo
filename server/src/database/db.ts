@@ -111,13 +111,14 @@ export async function getTodoFromUser(user_id: string) {
   array_agg(jsonb_build_object('name', label.name, 'color', label.color)) AS labels
 FROM
   todo
-INNER JOIN
+LEFT JOIN
   label
   ON todo.labels @> ARRAY[label.label_id]::UUID[]
 WHERE
   todo.user_id = $1
 GROUP BY
-  todo.todo_id, todo.user_id, todo.content;
+  todo.todo_id, todo.user_id, todo.content
+ORDER BY created_at DESC;
 ;
   `;
   const result = await client.query(sql, [user_id]);

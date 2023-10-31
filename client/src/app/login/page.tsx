@@ -37,7 +37,7 @@ export default function MyApp() {
 
   useEffect(() => {
     if (authSuccess) {
-      push("/");
+      push("/dashboard");
     }
   }, [authSuccess, push]);
 

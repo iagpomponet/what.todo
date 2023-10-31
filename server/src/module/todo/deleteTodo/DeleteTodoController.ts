@@ -3,7 +3,7 @@ import DeleteTodoUseCase from "./DeleteTodoUseCase.ts";
 
 export default class DeleteTodoController {
   async handle(req: Request, res: Response) {
-    const { todo_id } = req.body;
+    const { todo_id } = req.params;
     const deleteTodoUseCase = new DeleteTodoUseCase();
 
     if (!todo_id) {

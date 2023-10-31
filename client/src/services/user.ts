@@ -1,18 +1,27 @@
-import { useMutation } from "react-query";
+"use client";
+
+import { useMutation, useQuery } from "react-query";
 import api from "./api";
 
-export const createUser = async (payload: any) => {
+const createUser = async (payload: any) => {
   const result = await api.post("/user", payload);
 
   return result;
 };
 
-export const auth = async (payload: { email: string; password: string }) => {
+const auth = async (payload: { email: string; password: string }) => {
   const result = await api.post("/user/login", payload);
 
   return result;
 };
 
-export const useCreateUser = () => useMutation(createUser);
+export const getCurrentUser = async () => {
+  const result = await api.get("/user/bootstrap");
 
+  return result.data.data;
+};
+
+// Hooks
+export const useCreateUser = () => useMutation(createUser);
 export const useAuth = () => useMutation(auth);
+export const useGetCurrentUser = () => useQuery("bootstrap", getCurrentUser);
