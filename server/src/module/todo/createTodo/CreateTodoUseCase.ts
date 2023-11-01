@@ -1,4 +1,4 @@
-import { createTodo } from "../../../database/db.ts";
+import { createTodo } from "../../../database/db";
 
 interface Args {
   content: string;

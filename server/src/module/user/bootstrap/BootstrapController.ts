@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetUserUseCase from "../getUser/GetUserUseCase.ts";
+import GetUserUseCase from "../getUser/GetUserUseCase";
 
 export default class BootstrapController {
   async handle(req: Request, res: Response) {

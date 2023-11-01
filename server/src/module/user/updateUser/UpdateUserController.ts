@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import UpdateUserUseCase from "./UpdateUserUseCase.ts";
-import GetUserUseCase from "../getUser/GetUserUseCase.ts";
+import UpdateUserUseCase from "./UpdateUserUseCase";
+import GetUserUseCase from "../getUser/GetUserUseCase";
 
 export default class UpdateUserController {
   async handle(req: Request, res: Response) {

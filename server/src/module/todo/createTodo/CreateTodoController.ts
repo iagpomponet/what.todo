@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateTodoUseCase from "./CreateTodoUseCase.ts";
+import CreateTodoUseCase from "./CreateTodoUseCase";
 
 export default class CreateTodoController {
   async handle(req: Request, res: Response) {

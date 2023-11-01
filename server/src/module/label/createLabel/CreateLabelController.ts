@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateLabelUseCase from "./CreateLabelUseCase.ts";
+import CreateLabelUseCase from "./CreateLabelUseCase";
 
 export default class CreateLabelController {
   async handle(req: Request, res: Response) {

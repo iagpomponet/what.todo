@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetTodoFromUserUseCase from "./GetTodosFromUserUseCase.ts";
+import GetTodoFromUserUseCase from "./GetTodosFromUserUseCase";
 
 export default class GetTodosFromUserController {
   async handle(req: Request, res: Response) {

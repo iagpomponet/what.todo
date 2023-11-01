@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UpdateTodoUseCase from "./UpdateTodoUseCase.ts";
+import UpdateTodoUseCase from "./UpdateTodoUseCase";
 
 export default class UpdateTodoController {
   async handle(req: Request, res: Response) {

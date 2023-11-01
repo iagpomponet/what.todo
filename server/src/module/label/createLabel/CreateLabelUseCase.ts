@@ -1,4 +1,4 @@
-import { createLabel } from "../../../database/db.ts";
+import { createLabel } from "../../../database/db";
 
 interface Args {
   name: string;

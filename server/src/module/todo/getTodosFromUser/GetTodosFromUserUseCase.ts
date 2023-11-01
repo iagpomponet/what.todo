@@ -1,4 +1,4 @@
-import { getTodoFromUser } from "../../../database/db.ts";
+import { getTodoFromUser } from "../../../database/db";
 
 interface Args {
   user_id: string;

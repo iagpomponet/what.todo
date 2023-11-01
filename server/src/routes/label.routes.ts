@@ -1,7 +1,7 @@
 import express from "express";
-import handleAuth from "../middlewares/auth.ts";
-import CreateTodoController from "../module/todo/createTodo/CreateTodoController.ts";
-import CreateLabelController from "../module/label/createLabel/CreateLabelController.ts";
+import handleAuth from "../middlewares/auth";
+import CreateTodoController from "../module/todo/createTodo/CreateTodoController";
+import CreateLabelController from "../module/label/createLabel/CreateLabelController";
 
 const router = express.Router();
 

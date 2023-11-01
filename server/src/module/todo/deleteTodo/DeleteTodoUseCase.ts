@@ -1,4 +1,4 @@
-import { deleteTodo } from "../../../database/db.ts";
+import { deleteTodo } from "../../../database/db";
 
 interface Args {
   id: string;

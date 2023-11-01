@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateUserUseCase from "./CreateUserUseCase.ts";
+import CreateUserUseCase from "./CreateUserUseCase";
 
 export default class CreateUserController {
   async handle(req: Request, res: Response) {
@@ -8,7 +8,7 @@ export default class CreateUserController {
     const createUserUseCase = new CreateUserUseCase();
 
     try {
-      const results = await createUserUseCase.execute({
+      const resu = await createUserUseCase.execute({
         first_name,
         last_name,
         email,
@@ -17,7 +17,7 @@ export default class CreateUserController {
       });
 
       return res.status(201).json({
-        data: results.rows[0],
+        data: resu.rows[0],
       });
     } catch (error) {
       return res.status(400)?.json({

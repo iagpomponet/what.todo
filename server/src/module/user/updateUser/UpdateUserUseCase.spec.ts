@@ -1,7 +1,7 @@
-import { updateUser } from "../../../database/db.ts";
-import UpdateUserUseCase from "./updateUserUseCase.ts";
+import { updateUser } from "../../../database/db";
+import UpdateUserUseCase from "./UpdateUserUseCase";
 
-jest.mock("../../../../database/db.ts", () => ({
+jest.mock("../../../../database/db", () => ({
   updateUser: jest.fn().mockResolvedValue({ id: 1 }),
 }));
 
@@ -37,6 +37,6 @@ describe("UpdateUserUseCase", () => {
       user_id: "1234",
     };
 
-    await expect(useCase.execute(user)).rejects.toThrow("DB Error");
+    await expect(useCase.execute(user)).reje.toThrow("DB Error");
   });
 });

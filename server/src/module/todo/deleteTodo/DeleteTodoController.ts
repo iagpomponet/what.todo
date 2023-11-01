@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import DeleteTodoUseCase from "./DeleteTodoUseCase.ts";
+import DeleteTodoUseCase from "./DeleteTodoUseCase";
 
 export default class DeleteTodoController {
   async handle(req: Request, res: Response) {

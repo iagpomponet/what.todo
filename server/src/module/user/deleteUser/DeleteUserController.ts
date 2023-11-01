@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import DeleteUserUserCase from "./DeleteUserUseCase.ts";
-import GetUserUseCase from "../getUser/GetUserUseCase.ts";
+import DeleteUserUserCase from "./DeleteUserUseCase";
+import GetUserUseCase from "../getUser/GetUserUseCase";
 
 export default class DeleteUserController {
   async handle(req: Request, res: Response) {

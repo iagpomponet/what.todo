@@ -1,4 +1,4 @@
-import { getUser } from "../../../database/db.ts";
+import { getUser } from "../../../database/db";
 
 interface Args {
   id?: string;
@@ -8,9 +8,9 @@ interface Args {
 export default class GetUserUseCase {
   async execute({ id, email }: Args) {
     try {
-      const results = await getUser(id, email);
+      const resu = await getUser(id, email);
 
-      return results;
+      return resu;
     } catch (error) {
       throw new Error(error);
     }

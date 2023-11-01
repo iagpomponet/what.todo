@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { createUser } from "../../../database/db.ts";
+import { createUser } from "../../../database/db";
 
 interface Args {
   first_name: string;
@@ -22,8 +22,8 @@ export default class CreateUserUseCase {
     };
 
     try {
-      const results = await createUser(user);
-      return results;
+      const resu = await createUser(user);
+      return resu;
     } catch (error) {
       throw new Error(error);
     }

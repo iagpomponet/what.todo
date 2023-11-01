@@ -1,12 +1,12 @@
-import CreateUserUseCase from "./createUserUseCase.ts";
+import CreateUserUseCase from "./createUserUseCase";
 import bcrypt from "bcryptjs";
-import { createUser } from "../../../database/db.ts";
+import { createUser } from "../../../database/db";
 
 jest.mock("bcryptjs", () => ({
   hash: jest.fn().mockResolvedValue("hashedPassword"),
 }));
 
-jest.mock("../../../../database/db.ts", () => ({
+jest.mock("../../../../database/db", () => ({
   createUser: jest.fn().mockResolvedValue({ id: 1 }),
 }));
 
@@ -45,9 +45,7 @@ describe("CreateUserUseCase", () => {
       avatar_url: "",
     };
 
-    await expect(useCase.execute(user)).rejects.toThrow(
-      "Error: Database Error"
-    );
+    await expect(useCase.execute(user)).reje.toThrow("Error: Database Error");
   });
 
   it("should handle bcrypt hashing error", async () => {
@@ -63,7 +61,7 @@ describe("CreateUserUseCase", () => {
       avatar_url: "",
     };
 
-    await expect(useCase.execute(user)).rejects.toThrow("Hashing Error");
+    await expect(useCase.execute(user)).reje.toThrow("Hashing Error");
     bcrypt.hash.mockRestore();
   });
 });

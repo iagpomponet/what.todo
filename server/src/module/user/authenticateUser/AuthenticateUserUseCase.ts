@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import pkg from "bcryptjs";
-import GetUserUseCase from "../getUser/GetUserUseCase.ts";
+import GetUserUseCase from "../getUser/GetUserUseCase";
 
 interface Args {
   password: string;

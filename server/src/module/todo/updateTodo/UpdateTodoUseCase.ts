@@ -1,5 +1,5 @@
-import { updateTodo } from "../../../database/db.ts";
-import { Label } from "../../../database/types.ts";
+import { updateTodo } from "../../../database/db";
+import { Label } from "../../../database/types";
 
 interface Args {
   todo_id: string;

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { CookieOptions } from "express";
 
-import AuthenticateUserUseCase from "./AuthenticateUserUseCase.ts";
+import AuthenticateUserUseCase from "./AuthenticateUserUseCase";
 
 export const authCookieConfig: CookieOptions = {
   httpOnly: true,

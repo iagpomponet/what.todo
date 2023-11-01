@@ -85,9 +85,9 @@ export async function updateTodo(id, data) {
   const sql =
     'UPDATE todo SET labels=$1, content=$2, "completed"=$3 WHERE todo_id=$4 RETURNING *';
   const values = [data.labels, data.content, data.completed, id];
-  const results = await client.query(sql, values);
+  const resu = await client.query(sql, values);
   client.release();
-  return results.rows;
+  return resu.rows;
 }
 
 export async function deleteTodo(id) {

@@ -1,13 +1,13 @@
 import express from "express";
 
-import handleAuth from "../middlewares/auth.ts";
+import handleAuth from "../middlewares/auth";
 
-import CreateUserController from "../module/user/createUser/CreateUserController.ts";
-import UpdateUserController from "../module/user/updateUser/UpdateUserController.ts";
-import DeleteUserController from "../module/user/deleteUser/DeleteUserController.ts";
-import GetUserController from "../module/user/getUser/GetUserController.ts";
-import AuthenticateUserController from "../module/user/authenticateUser/AuthenticateUserController.ts";
-import BootstrapController from "../module/user/bootstrap/BootstrapController.ts";
+import CreateUserController from "../module/user/createUser/CreateUserController";
+import UpdateUserController from "../module/user/updateUser/UpdateUserController";
+import DeleteUserController from "../module/user/deleteUser/DeleteUserController";
+import GetUserController from "../module/user/getUser/GetUserController";
+import AuthenticateUserController from "../module/user/authenticateUser/AuthenticateUserController";
+import BootstrapController from "../module/user/bootstrap/BootstrapController";
 
 const getUserController = new GetUserController();
 const createUserController = new CreateUserController();

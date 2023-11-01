@@ -1,7 +1,7 @@
-import { deleteUser } from "../../../database/db.ts";
-import DeleteUserUserCase from "./deleteUserUseCase.ts";
+import { deleteUser } from "../../../database/db";
+import DeleteUserUserCase from "./deleteUserUseCase";
 
-jest.mock("../../../../database/db.ts", () => ({
+jest.mock("../../../../database/db", () => ({
   deleteUser: jest.fn().mockResolvedValue({ id: 1 }),
 }));
 
@@ -21,6 +21,6 @@ describe("DeleteUserUseCase", () => {
 
     deleteUser.mockRejectedValue(new Error("DB Error"));
 
-    await expect(useCase.execute({ id })).rejects.toThrow("DB Error");
+    await expect(useCase.execute({ id })).reje.toThrow("DB Error");
   });
 });

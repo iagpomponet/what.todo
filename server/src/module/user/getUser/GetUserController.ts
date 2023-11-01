@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetUserUseCase from "./GetUserUseCase.ts";
+import GetUserUseCase from "./GetUserUseCase";
 
 export default class GetUserController {
   async handle(req: Request, res: Response) {

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import GetUserUseCase from "../module/user/getUser/GetUserUseCase.ts";
+import GetUserUseCase from "../module/user/getUser/GetUserUseCase";
 
 export default async function handleAuth(
   req: Request,
