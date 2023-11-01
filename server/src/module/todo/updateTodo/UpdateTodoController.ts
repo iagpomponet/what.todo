@@ -4,6 +4,7 @@ import UpdateTodoUseCase from "./UpdateTodoUseCase.ts";
 export default class UpdateTodoController {
   async handle(req: Request, res: Response) {
     const { todo_id } = req.params;
+
     const { content, labels, completed } = req.body;
     const updateTodoUseCase = new UpdateTodoUseCase();
 

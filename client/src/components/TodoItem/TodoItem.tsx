@@ -13,6 +13,8 @@ import {
 } from "@radix-ui/themes";
 import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 import { UseMutateFunction, useQueryClient } from "react-query";
+import Spinner from "../icons/Spinner";
+import { useState } from "react";
 
 interface TodoItemI {
   todo_id: string;
@@ -29,14 +31,34 @@ interface DeleteDialogI {
 
 export default function TodoItem({ content, completed, todo_id }: TodoItemI) {
   const client = useQueryClient();
-  const { register } = useForm();
-  const { mutate: editTodo } = useEditTodo();
+  const { register, getValues } = useForm();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const { mutate: editTodo, isLoading: editLoading } = useEditTodo({
+    onSuccess: () => {
+      client.invalidateQueries("todos");
+      setModalOpen(false);
+    },
+  });
+
   const { mutate: deleteTask, isLoading } = useDeleteTodo({
     onSuccess: () => {
       client.invalidateQueries("todos");
     },
   });
-  const handleSaveTodo = () => {};
+
+  console.log("completed :>> ", completed);
+
+  const handleSaveTodo = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const { completed, content } = getValues();
+
+    editTodo({ todo_id, payload: { completed, content } });
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <li>
@@ -46,14 +68,19 @@ export default function TodoItem({ content, completed, todo_id }: TodoItemI) {
           <Text>{content}</Text>
         </Flex>
         <Flex gap="3">
-          <Dialog.Root>
-            <Dialog.Trigger>
+          <Dialog.Root open={modalOpen}>
+            <Dialog.Trigger onClick={() => setModalOpen(true)}>
               <Pencil2Icon color="gray" />
             </Dialog.Trigger>
             <Dialog.Content style={{ maxWidth: 450 }}>
               <EditModal
+                onClose={closeModal}
+                isLoading={editLoading}
                 register={register}
-                content={content}
+                data={{
+                  completed,
+                  content,
+                }}
                 submit={handleSaveTodo}
               />
             </Dialog.Content>
@@ -107,61 +134,56 @@ const DeleteDialog = ({ deleteTask, isLoading, todo_id }: DeleteDialogI) => {
 };
 
 const EditModal = ({
-  content,
+  data,
   register,
   submit,
+  isLoading,
+  onClose,
 }: {
-  content: string;
-  submit: () => void;
+  data: {
+    content: string;
+    completed: boolean;
+  };
+  submit: (e: React.SyntheticEvent) => void;
   register: UseFormRegister<FieldValues>;
+  isLoading: boolean;
+  onClose: () => void;
 }) => {
+  console.log("data :>> ", data);
   return (
     <>
       <Dialog.Title>Edit task</Dialog.Title>
 
       <Flex direction="column" gap="3">
-        <label>
-          <Text as="div" size="2" mb="1" weight="bold">
-            Task
-          </Text>
-          <Flex grow="1" width="100%" align="center" gap="2">
-            <Checkbox
-              {...register("completed")}
-              variant="soft"
-              size="3"
-              defaultChecked
-            />
-            <TextField.Input
-              {...register("content")}
-              size="2"
-              style={{ width: "100%" }}
-              defaultValue={content}
-              placeholder="Write your task here"
-            />
+        <form onSubmit={submit}>
+          <label>
+            <Text as="div" size="2" mb="1" weight="bold">
+              Task
+            </Text>
+            <Flex grow="1" width="100%" align="center" gap="2">
+              <input type="checkbox" {...register("completed")} />
+              <TextField.Input
+                {...register("content")}
+                size="2"
+                style={{ width: "100%" }}
+                defaultValue={data.content}
+                placeholder="Write your task here"
+              />
+            </Flex>
+          </label>
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button onClick={onClose} variant="soft" color="gray">
+                Cancel
+              </Button>
+            </Dialog.Close>
+            <Dialog.Close>
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? <Spinner /> : "Save"}
+              </Button>
+            </Dialog.Close>
           </Flex>
-        </label>
-
-        <label>
-          <Text as="div" size="2" mb="1" weight="bold">
-            Labels
-          </Text>
-          <Flex gap="2">
-            <Badge color="orange">In progress</Badge>
-            <Badge color="blue">In review</Badge>
-            <Badge color="green">Complete</Badge>
-          </Flex>
-        </label>
-      </Flex>
-
-      <Flex gap="3" mt="4" justify="end">
-        <Dialog.Close>
-          <Button variant="soft" color="gray">
-            Cancel
-          </Button>
-        </Dialog.Close>
-        <Dialog.Close>
-          <Button>Save</Button>
-        </Dialog.Close>
+        </form>
       </Flex>
     </>
   );

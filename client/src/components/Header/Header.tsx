@@ -25,8 +25,8 @@ export default function Header() {
               </Flex>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-              <DropdownMenu.Item>Profile</DropdownMenu.Item>
-              <DropdownMenu.Item>Duplicate</DropdownMenu.Item>
+              <DropdownMenu.Item>Settings</DropdownMenu.Item>
+              <DropdownMenu.Item color="red">Logout</DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </div>

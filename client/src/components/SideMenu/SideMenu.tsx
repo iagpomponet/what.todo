@@ -7,6 +7,9 @@ import { useQueryClient } from "react-query";
 import { useState } from "react";
 import Spinner from "../icons/Spinner";
 
+// Think about the componentization i did
+// Think about if i am using the next js features or not
+
 export default function SideMenu() {
   const [modalOpen, setModalOpen] = useState(false);
   const {
@@ -29,7 +32,7 @@ export default function SideMenu() {
     mutate({
       content,
       labels: [],
-      user_id: user.user_id,
+      user_id: user?.user_id,
     } as any);
   };
 

@@ -24,12 +24,15 @@ const deleteTodo = async (id: string) => {
 };
 
 interface EditTodoPayload {
-  content: string;
-  completed: boolean;
+  todo_id: string;
+  payload: { content: string; completed: boolean };
 }
 
 const editTodo = async (payload: EditTodoPayload) => {
-  const result = await api.put("/post", payload);
+  const result = await api.put(`/todo/${payload.todo_id}`, {
+    ...payload.payload,
+    labels: [],
+  });
 
   return result.data;
 };
