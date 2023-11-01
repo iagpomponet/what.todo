@@ -12,7 +12,7 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { connect } from "./database/db";
-import userRoutes from "./routes/user.routes.js";
+import userRoutes from "./routes/user.routes";
 import todoRoutes from "./routes/todo.routes";
 import labelRoutes from "./routes/label.routes";
 const app = express();
